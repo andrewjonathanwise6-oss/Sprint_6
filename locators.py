@@ -7,8 +7,8 @@ class MainPageLocators:
     TOP_ORDER_BUTTON = By.XPATH, "(//button[text()='Заказать'])[1]"
     BOTTOM_ORDER_BUTTON = By.XPATH, "(//button[text()='Заказать'])[2]"
 
-    SCOOTER_LOGO = By.XPATH, "//img[@alt='Scooter']"
-    YANDEX_LOGO = By.XPATH, "//img[@alt='Yandex']"
+    SCOOTER_LOGO = By.XPATH, "//img[@alt='Scooter']/parent::a"
+    YANDEX_LOGO = By.XPATH, "//img[@alt='Yandex']/parent::a"
 
     FAQ_QUESTION_0 = By.ID, "accordion__heading-0"
     FAQ_QUESTION_1 = By.ID, "accordion__heading-1"
@@ -55,3 +55,7 @@ class OrderPageLocators:
     @staticmethod
     def rent_period_option(period):
         return By.XPATH, f"//div[text()='{period}']"
+
+
+class DzenPageLocators:
+    NO_THANKS_BUTTON = By.XPATH, "//span[normalize-space()='Нет, спасибо']/ancestor::*[contains(@class, 'Button')][1]"
