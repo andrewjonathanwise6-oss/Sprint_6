@@ -31,5 +31,14 @@ class BasePage:
     def get_text(self, locator):
         return self.find_element(locator).text
 
+    def scroll_to_element(self, locator):
+        element = self.find_element(locator)
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    def wait_until_element_is_invisible(self, locator):
+        WebDriverWait(self.driver, 10).until(
+            expected_conditions.invisibility_of_element_located(locator)
+        )
+
     def get_current_url(self):
         return self.driver.current_url
